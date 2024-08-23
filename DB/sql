@@ -1,0 +1,22 @@
+/*agregar ganadores del 1 al 3 a tabla ganadores*/
+INSERT INTO Ganadores (contrato, nombre, barrio, estrato)
+SELECT 
+    contrato, 
+    nombre,
+    barrio,
+    estrato
+FROM Estratos1_3
+WHERE contrato = (SELECT contrato FROM Estratos1_3 ORDER BY RANDOM() LIMIT 1);
+
+/*agregar ganadores del 4 al 6 a tabla ganadores*/
+INSERT INTO Ganadores (contrato, nombre, barrio, estrato)
+SELECT 
+    contrato, 
+    nombre,
+    barrio,
+    estrato
+FROM Estratos4_6
+WHERE contrato = (SELECT contrato FROM Estratos4_6 ORDER BY RANDOM() LIMIT 1);
+
+/*limpiar tabla ganadores*/
+DELETE FROM Ganadores

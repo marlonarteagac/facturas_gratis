@@ -1,0 +1,69 @@
+<!--herencia de plantilla base-->
+{% extends 'base.html'%}
+<!--Agregar titulo en la plantilla base-->
+{% block title %}Estratos del 1 al 3{%endblock%}
+
+<!--Iicio del bloque de contenido que se mostrará en la pagina-->
+{%block content%}
+
+
+
+<body>
+
+    <body>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+            <form method="POST">
+
+                {% for datos in datos %}
+             
+                <div class="mb-3">
+
+                    <label for="contrato"   class="form-label">Contrato</label>
+                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[0]}}">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="contrato"   class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[1]}}">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="contrato"   class="form-label">Barrio</label>
+                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[2]}}">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="contrato"   class="form-label">Estrato</label>
+                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[3]}}">
+
+                </div>
+
+                {% endfor %}
+                
+                <input type="submit" value="generar" type="button" class="btn btn-primary">
+            </form>
+        </div>
+        </div>
+        <!---
+    <script>
+        function generar() {
+            // Genera un número de contrato aleatorio de 6 dígitos
+            const numeroContrato = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('contrato').value = numeroContrato;
+        }
+    </script>
+     -->
+    </body>
+
+
+
+
+    {%endblock%}
+    <!--fin del bloque de contenito-->
