@@ -15,39 +15,35 @@
             <div class="col-md-6">
             <form method="POST">
                 
-
-                {% for datos in datos %}
              
                 <div class="mb-3">
 
                     <label for="contrato"   class="form-label">Contrato</label>
-                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[0]}}">
+                    <input type="text" class="form-control" id="contrato" disabled ">
 
                 </div>
 
                 <div class="mb-3">
 
                     <label for="contrato"   class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[1]}}">
+                    <input type="text" class="form-control" id="contrato" disabled ">
 
                 </div>
 
                 <div class="mb-3">
 
                     <label for="contrato"   class="form-label">Barrio</label>
-                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[2]}}">
+                    <input type="text" class="form-control" id="contrato" disabled ">
 
                 </div>
 
                 <div class="mb-3">
 
                     <label for="contrato"   class="form-label">Estrato</label>
-                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[3]}}">
+                    <input type="text" class="form-control" id="contrato" disabled ">
 
                 </div>
 
-                {% endfor %}
-                
                 <input type="submit" value="generar" type="button" class="btn btn-primary">
             </form>
         </div>

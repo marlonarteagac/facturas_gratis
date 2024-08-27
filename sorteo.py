@@ -1,4 +1,4 @@
-from flask import Flask  # Importamos flask
+from flask import Flask, request  # Importamos flask
 from flask import render_template  # importamos render_template (plantillas )
 from funciones import conexion_db
 
@@ -15,32 +15,31 @@ def home():  # funcion que retorna la ruta del html
 @app.route('/sorteo1',methods=['POST', 'GET'])  # declaramos la ruta para la pagina estratos1-3.html
 def sorteo1():  # funcion que retorna la ruta del html
     # se renderiza la ruta del html con render_template
-    mi_db = "DB/db_sorteo"
-    mi_consulta_sql = """
-            SELECT 
-                contrato, 
-                nombre,
-                barrio,
-                estrato
+    if request.method == 'POST':
+        mi_db = "DB/db_sorteo"
+        mi_consulta_sql = """
+                SELECT 
+                    contrato, 
+                    nombre,
+                    barrio,
+                    estrato
+                    
+                FROM Estratos1_3
                 
-            FROM Estratos1_3
-            
-            ORDER BY RANDOM()
-            LIMIT 1;
-
-    """
-    datos = conexion_db.Conexion(mi_db, mi_consulta_sql) 
-    
-        
-    # Preparar la consulta para insertar los datos en la tabla Ganadores
-    insertar_ganador = """
-    INSERT INTO Ganadores (contrato, nombre, barrio, estrato)
-    VALUES (?, ?, ?, ?);
-    """
-        # Conectarse a la base de datos y ejecutar la inserción
-    conexion_db.Conexion(mi_db, insertar_ganador, datos[0])  # Asumiendo que datos[0] tiene el contrato, datos[1] tiene el nombre, etc.
-    return render_template("estratos1-3.html", datos=datos)
-
+                ORDER BY RANDOM()
+                LIMIT 1; """
+        datos = conexion_db.Conexion(mi_db, mi_consulta_sql) 
+                      
+        # Preparar la consulta para insertar los datos en la tabla Ganadores
+        insertar_ganador = """
+        INSERT INTO Ganadores (contrato, nombre, barrio, estrato)
+        VALUES (?, ?, ?, ?);
+        """
+            # Conectarse a la base de datos y ejecutar la inserción
+        conexion_db.Conexion(mi_db, insertar_ganador, datos[0])  # Asumiendo que datos[0] tiene el contrato, datos[1] tiene el nombre, etc.
+        return render_template("estratos1-3.html", datos=datos)
+    else:
+        return render_template("formulario.html")
 
 # Ruta a la pagina del sorteo para estratos 4 al 6
 @app.route('/sorteo2')  # declaramos la ruta para la pagina estratos4-3.html
