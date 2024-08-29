@@ -6,60 +6,63 @@
 <!--Iicio del bloque de contenido que se mostrará en la pagina-->
 {%block content%}
 
-
-
 <body>
 
     <body>
         <div class="row justify-content-center">
             <div class="col-md-6">
-            <form method="POST">
-                
+                <form method="POST">
 
-                {% for datos in datos %}
-             
-                <div class="mb-3">
+                    <script>
+                        window.onload = function() {
+                            if (window.performance && window.performance.navigation.type === 2) {
+                                window.location.href = "/otra_pagina";
+                            }
+                        }
+                    </script>
+                   
 
-                    <label for="contrato"   class="form-label">Contrato</label>
-                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[0]}}">
+                    <div class="mb-3">
 
-                </div>
+                        <label for="contrato"   class="form-label">Contrato</label>
+                        <input type="text" class="form-control" id="contrato" disabled value="{{contrato}}">
 
-                <div class="mb-3">
+                    </div>
 
-                    <label for="contrato"   class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[1]}}">
+                    <div class="mb-3">
 
-                </div>
+                        <label for="contrato"   class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="contrato" disabled value="{{nombre}}">
 
-                <div class="mb-3">
+                    </div>
 
-                    <label for="contrato"   class="form-label">Barrio</label>
-                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[2]}}">
+                    <div class="mb-3">
 
-                </div>
+                        <label for="contrato"   class="form-label">Barrio</label>
+                        <input type="text" class="form-control" id="contrato" disabled value="{{barrio}}">
 
-                <div class="mb-3">
+                    </div>
 
-                    <label for="contrato"   class="form-label">Estrato</label>
-                    <input type="text" class="form-control" id="contrato" disabled value="{{datos[3]}}">
+                    <div class="mb-3">
 
-                </div>
+                        <label for="contrato"   class="form-label">Estrato</label>
+                        <input type="text" class="form-control" id="contrato" disabled value="{{estrato}}">
 
-                {% endfor %}
-                
-                <input type="submit" value="generar" type="button" class="btn btn-primary">
-            </form>
-            <a href="/ganadores">Ir a ganadores</a>
+                    </div>
+
+          
+                    <input type="submit" value="generar" type="button" class="btn btn-primary">
+                    <label for="contrato"   class="form-label">{{mensaje}}</label>
+
+                </form>
+
+            </div>
+
         </div>
-        </div>
+        <a href="/ganadores">Ir a ganadores</a><br>
+        <a href="/">Ir al inicio</a>
         <!---
-    <script>
-        function generar() {
-            // Genera un número de contrato aleatorio de 6 dígitos
-            const numeroContrato = Math.floor(100000 + Math.random() * 900000);
-            document.getElementById('contrato').value = numeroContrato;
-        }
+
     </script>
      -->
     </body>
