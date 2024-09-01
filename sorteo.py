@@ -24,7 +24,7 @@ def sorteo1():  # funcion que retorna la ruta del html
     # se renderiza la ruta del html con render_template
     if request.method == 'POST':
 
-        mi_db = "DB/db_sorteo"
+        mi_db = "facturas_gratis\DB\db_sorteo"
         mi_consulta_sql = """
                 SELECT
                     contrato,
@@ -65,7 +65,7 @@ def sorteo1():  # funcion que retorna la ruta del html
 def sorteo2():  # funcion que retorna la ruta del html
     # se renderiza la ruta del html con render_template
     if request.method == 'POST':
-        mi_db = "DB/db_sorteo"
+        mi_db = "facturas_gratis\DB\db_sorteo"
         mi_consulta_sql = """
                 SELECT
                     contrato,
@@ -98,7 +98,7 @@ def Ganadores():  # funcion que retorna la ruta del html
     # se renderiza la ruta del html con render_template
 
     # se renderiza la ruta del html con render_template
-    mi_db = "DB/db_sorteo"
+    mi_db = "facturas_gratis\DB\db_sorteo"
     mi_consulta_sql = """
             SELECT * from Ganadores
     """
@@ -110,7 +110,7 @@ def Ganadores():  # funcion que retorna la ruta del html
 # declaramos la ruta para la pagina "ganadores.html
 @app.route('/limpiar_ganadores',methods= ['POST'])
 def limpiar_ganadores():  # funcion que retorna la ruta del html
-    mi_db = "DB/db_sorteo"
+    mi_db = "facturas_gratis\DB\db_sorteo"
     mi_consulta_sql = """
            delete from ganadores"""
     datos = conexion_db.Conexion(mi_db, mi_consulta_sql)
